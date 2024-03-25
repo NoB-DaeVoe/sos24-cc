@@ -11,6 +11,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import static fi.arcada.codechallenge.Statistics.calcMean;
+
 public class MainActivity extends AppCompatActivity {
 
     TextView outputText;
@@ -36,12 +38,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void calculate(View view) {
-        double sum = 0;
-        for ( int i = 0 ; i < values.length ; i++ ) {
-            sum += values[i];
-        }
 
-        sum /= values.length;
-        mean.setText(String.format("%.2f", sum));
+        mean.setText(String.format("%.2f", calcMean(values)));
     }
 }
