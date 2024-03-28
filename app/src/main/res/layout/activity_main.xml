@@ -12,17 +12,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Code Challenge"
-        android:textSize="24sp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/inText"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.366" />
+        app:layout_constraintVertical_bias="0.191" />
 
     <EditText
         android:id="@+id/inText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="75dp"
         android:ems="10"
         android:hint="Skriv någonting!"
         android:inputType="text"
@@ -30,7 +32,7 @@
         app:layout_constraintEnd_toStartOf="@+id/btnOk"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.691" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/btnOk"
@@ -49,26 +51,21 @@
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="151dp"
-        android:layout_marginTop="52dp"
-        android:layout_marginEnd="152dp"
+        android:layout_marginTop="60dp"
         android:onClick="calculate"
         android:text="Calculate"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/outText" />
+        app:layout_constraintStart_toStartOf="@+id/inText"
+        app:layout_constraintTop_toBottomOf="@+id/inText" />
 
     <TextView
         android:id="@+id/calc"
-        android:layout_width="183dp"
-        android:layout_height="130dp"
-        android:layout_marginTop="16dp"
-        android:text="TextView"
+        android:layout_width="358dp"
+        android:layout_height="205dp"
+        android:layout_marginTop="128dp"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@+id/button2"
-        app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="@+id/button2"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/inText"
+        app:layout_constraintTop_toBottomOf="@+id/inText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
