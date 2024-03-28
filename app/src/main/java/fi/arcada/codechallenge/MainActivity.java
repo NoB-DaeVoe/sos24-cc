@@ -46,10 +46,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void calculate(View view) {
 
-        calculate.setText(String.format("Medelvärde: %.2f\nMedian: %.2f\nStandaravvikelse: %.2f",
+        calculate.setText(String.format("Medelvärde: %.2f\nMedian: %.2f\nStandaravvikelse: %.2f\nTypvärde: %.2f",
                 Statistics.calcMean(values),
                 Statistics.calcMedian(values),
-                Statistics.calcStdev(values)
+                Statistics.calcStdev(values),
+                Statistics.calcMode(values)
         ));
     }
 }

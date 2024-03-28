@@ -24,6 +24,7 @@
         android:id="@+id/inText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="75dp"
         android:ems="10"
         android:hint="Skriv någonting!"
@@ -32,14 +33,14 @@
         app:layout_constraintEnd_toStartOf="@+id/btnOk"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.125" />
 
     <Button
         android:id="@+id/btnOk"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
-        android:layout_marginEnd="40dp"
+        android:layout_marginEnd="15dp"
         android:onClick="buttonHandler"
         android:text="OK"
         app:layout_constraintBottom_toBottomOf="@+id/inText"

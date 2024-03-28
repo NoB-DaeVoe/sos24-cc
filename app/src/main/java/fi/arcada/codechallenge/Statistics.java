@@ -2,6 +2,8 @@ package fi.arcada.codechallenge;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Statistics {
 
@@ -35,5 +37,29 @@ public class Statistics {
         return Math.sqrt(sumDif / array.size());
     }
 
-    // public static double calcMode(ArrayList<Double> array)
+    public static double calcMode(ArrayList<Double> array) {
+        ArrayList<Double> mode = new ArrayList<>(array);
+        // Create a map to count occurrences of each value
+        Map<Double, Double> frequencyMap = new HashMap<>();
+
+        // Iterate over the values and count occurrences
+        for (double value : mode) {
+            frequencyMap.put(value, frequencyMap.getOrDefault(value, Double.valueOf(0)) + 1);
+        }
+
+        // Find the most common value
+        double mostCommonValue = mode.get(0); // Default to the first value
+        double maxFrequency = 0;
+
+        for (Map.Entry<Double, Double> entry : frequencyMap.entrySet()) {
+            double value = entry.getKey();
+            double frequency = entry.getValue();
+            if (frequency > maxFrequency) {
+                mostCommonValue = value;
+                maxFrequency = frequency;
+            }
+        }
+
+        return mostCommonValue;
+    }
 }
