@@ -9,52 +9,52 @@
 
     <TextView
         android:id="@+id/outText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Code Challenge"
+        android:layout_width="96dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="20dp"
+        android:text="Hello World!"
+        android:textAlignment="center"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/inText"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.147" />
+        app:layout_constraintBottom_toBottomOf="@+id/inText"
+        app:layout_constraintStart_toEndOf="@+id/inText"
+        app:layout_constraintTop_toTopOf="@+id/inText"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/inText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="50dp"
+        android:layout_width="101dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="58dp"
         android:ems="10"
         android:hint="Skriv någonting!"
         android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/outText"
-        app:layout_constraintEnd_toStartOf="@+id/btnOk"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnOk"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginEnd="15dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="54dp"
         android:onClick="buttonHandler"
         android:text="OK"
-        app:layout_constraintBottom_toBottomOf="@+id/inText"
+        app:layout_constraintBottom_toBottomOf="@+id/outText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/inText"
-        app:layout_constraintTop_toTopOf="@+id/inText" />
+        app:layout_constraintStart_toEndOf="@+id/outText"
+        app:layout_constraintTop_toTopOf="@+id/outText"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="121dp"
         android:layout_height="51dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="24dp"
         android:onClick="calculate"
         android:text="Calculate"
+        app:layout_constraintEnd_toEndOf="@+id/inText"
+        app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="@+id/inText"
         app:layout_constraintTop_toBottomOf="@+id/inText" />
 
@@ -62,20 +62,23 @@
         android:id="@+id/calc"
         android:layout_width="358dp"
         android:layout_height="205dp"
-        android:layout_marginTop="96dp"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/button2"
-        app:layout_constraintHorizontal_bias="0.037"
-        app:layout_constraintStart_toStartOf="@+id/inText"
-        app:layout_constraintTop_toBottomOf="@+id/inText" />
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="19dp"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/button2"
+        app:layout_constraintTop_toBottomOf="@+id/button2" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="369dp"
-        android:layout_height="360dp"
-        android:layout_marginTop="12dp"
+        android:layout_width="358dp"
+        android:layout_height="313dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/calc"
-        app:layout_constraintHorizontal_bias="0.636"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/calc"
         app:layout_constraintTop_toBottomOf="@+id/calc" />
 

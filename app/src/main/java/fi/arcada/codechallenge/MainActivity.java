@@ -12,6 +12,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
@@ -19,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     TextView outputText;
     EditText inputText;
     TextView calculate;
+    RecyclerView recyclerView;
 
     String[] cityNames = { "Helsingfors", "Esbo", "Tammerfors", "Vanda", "Uleåborg", "Åbo", "Jyväskylä", "Kuopio", "Lahtis", "Björneborg", "Kouvola", "Joensuu", "Villmanstrand", "Tavastehus", "Vasa", "Seinäjoki", "Rovaniemi", "S:t Michel", "Salo", "Kotka", "Borgå", "Karleby", "Hyvinge", "Lojo", "Träskända", "Raumo", "Kervo", "Kajana", "S:t Karins", "Nokia", "Ylöjärvi", "Kangasala", "Nyslott", "Riihimäki", "Raseborg", "Imatra", "Reso", "Brahestad", "Sastamala", "Torneå", "Idensalmi", "Valkeakoski", "Kurikka", "Kemi", "Varkaus", "Jämsä", "Fredrikshamn", "Nådendal", "Jakobstad", "Heinola", "Äänekoski", "Pieksämäki", "Forssa", "Ackas", "Orimattila", "Loimaa", "Nystad", "Ylivieska", "Kauhava", "Kuusamo", "Pargas", "Lovisa", "Lappo", "Kauhajoki", "Ulvsby", "Kankaanpää", "Kalajoki", "Mariehamn", "Alavo", "Pemar", "Lieksa", "Grankulla", "Nivala", "Kides", "Vittis", "Mänttä-Vilppula", "Närpes", "Keuru", "Nurmes", "Alajärvi", "Saarijärvi", "Orivesi", "Högfors", "Somero", "Letala", "Hangö", "Kuhmo", "Kiuruvesi", "Pudasjärvi", "Nykarleby", "Kemijärvi", "Oulainen", "Kumo", "Suonenjoki", "Ikalis", "Haapajärvi", "Harjavalta", "Haapavesi", "Outokumpu", "Virdois", "Kristinestad", "Parkano", "Viitasaari", "Etseri", "Kannus", "Pyhäjärvi", "Kaskö" };
     double[] founded = { 1550, 1972, 1779, 1974, 1605, 1200, 1837, 1782, 1905, 1558, 1960, 1848, 1649, 1639, 1606, 1960, 1960, 1838, 1960, 1878, 1346, 1620, 1960, 1969, 1967, 1442, 1970, 1651, 1993, 1977, 2004, 2018, 1639, 1960, 2009, 1971, 1974, 1649, 2009, 1621, 1891, 1963, 1977, 1869, 1962, 1977, 1653, 1443, 1652, 1839, 1973, 1962, 1964, 2007, 1992, 1969, 1617, 1971, 1986, 2000, 1977, 1745, 1977, 2001, 2000, 1972, 2002, 1861, 1977, 1997, 1973, 1972, 1992, 1992, 1977, 2009, 1993, 1986, 1974, 1986, 1986, 1986, 1977, 1993, 1986, 1874, 1986, 1993, 2004, 1620, 1973, 1977, 1977, 1977, 1977, 1977, 1977, 1996, 1977, 1977, 1649, 1977, 1996, 1986, 1986, 1993, 1785 };
@@ -34,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         outputText = findViewById(R.id.outText);
         inputText = findViewById(R.id.inText);
         calculate = findViewById(R.id.calc);
+        recyclerView = findViewById(R.id.recyclerView);
 
         DataItem person = new DataItem("John", 55);
 
@@ -41,6 +45,9 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 0 ; i < population.length ; i++) {
             dataItems.add(new DataItem(cityNames[i], population[i]));
         }
+        DataItemViewAdapter adapter = new DataItemViewAdapter(this, dataItems);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
     public void buttonHandler(View view) {
@@ -54,11 +61,14 @@ public class MainActivity extends AppCompatActivity {
         for (DataItem item : dataItems) {
             values.add(item.getValue());
         }
-        calculate.setText(String.format("Population:\nMedelvärde: %.2f\nMedian: %.2f\nStandaravvikelse: %.2f\nTypvärde: %.2f",
+        calculate.setText(String.format("Population:\nMedelvärde: %.2f\nMedian: %.2f\nStandaravvikelse: %.2f\nTypvärde: %.2f\nLQ: %.2f\nUQ: %.2f\nIQR: %.2f",
                 Statistics.calcMean(values),
                 Statistics.calcMedian(values),
                 Statistics.calcStdev(values),
-                Statistics.calcMode(values)
+                Statistics.calcMode(values),
+                Statistics.calcLQ(values),
+                Statistics.calcUQ(values),
+                Statistics.calcIQR(values)
         ));
     }
 }
