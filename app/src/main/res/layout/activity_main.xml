@@ -82,4 +82,16 @@
         app:layout_constraintStart_toStartOf="@+id/calc"
         app:layout_constraintTop_toBottomOf="@+id/calc" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnSettings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:clickable="true"
+        android:onClick="openSettings"
+        app:layout_constraintEnd_toEndOf="@+id/btnOk"
+        app:layout_constraintStart_toStartOf="@+id/btnOk"
+        app:layout_constraintTop_toBottomOf="@+id/btnOk"
+        app:srcCompat="@android:drawable/ic_menu_preferences" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

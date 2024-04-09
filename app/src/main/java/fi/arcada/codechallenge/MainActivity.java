@@ -1,6 +1,7 @@
 package fi.arcada.codechallenge;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -54,15 +55,20 @@ public class MainActivity extends AppCompatActivity {
 
         // Läs värde från SharedPreferences
         int appStartCount = prefs.getInt("counter", 0);
+        String greeting = prefs.getString("greeting", "Hello!");
 
         // Lägg till värde till SharedPreferences och öka med 1
         prefsEditor.putInt("counter", appStartCount + 1);
+        prefsEditor.putString("greeting", "Morjens!");
 
         // Spara ändringen
         prefsEditor.apply();
 
         // Visa värdet
-        calculate.setText("Times you have opened app: " + appStartCount);
+        calculate.setText(String.format("Times you have opened app: %s\nHälsning: %s",
+                appStartCount,
+                greeting
+        ));
 
         // Vi fyller vår ArrayList med värdena från testdata-arrayen
         for (int i = 0 ; i < population.length ; i++) {
@@ -96,5 +102,10 @@ public class MainActivity extends AppCompatActivity {
                 Statistics.calcUQ(values),
                 Statistics.calcIQR(values)
         ));
+    }
+
+    public void openSettings(View view) {
+        Intent intent = new Intent (this, SettingsActivity.class);
+        startActivity(intent);
     }
 }
